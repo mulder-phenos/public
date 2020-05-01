@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>phenomx new homepage sub-pages</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<style>
+* { margin: 0; padding: 0; }
+#menu-outer {
+  position: fixed;
+  top: 0;
+  height: 84px;
+  background-color: black;
+  width: 100%;
+}
+
+.table {
+   display: table;   /* Allow the centering to work */
+   margin: 0 auto;
+}
+
+ul#menu-list {
+  min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+}
+ul#menu-list li {
+  display: inline;
+}
+ul#menu-list li a {
+  font-size: 2em;
+  text-decoration: none;
+}
+ul#menu-list li a:link { color: white;  }
+
+#imgpan { margin-top: 84px; }
+img.img1 {
+   width: 1920px;
+}
+</style>
+</head>
+<body>
+  <div id="menu-outer">
+    <div class="table">
+      <ul id="menu-list">
+      </ul>
+    </div>
+  </div>
+  <div id="imgpan"></div>
+
+
+</body>
+</html>
+  <script>
+    function showImg(k) {
+      $('#imgpan').html(`<img class="img1" src="homep-${k}.jpeg"/>`)
+    }
+
+    function initWeb() {
+      $('#menu-list').html(
+        ["main", "covid19-pandemic", "projects", "about", "news-n-media", "careers",
+          "contact"].map(d => `<li><a href="javascript:showImg('${d}')"> [ ${d} ] 
+            </a></li>`).join("\n")
+        )
+
+    }
+    $(document).ready(initWeb);
+
+/*
+homep-about.jpeg
+homep-careers.jpeg
+homep-contact.jpeg
+homep-covid19-pandemic.jpeg
+homep-main.jpeg
+homep-news-n-media.jpeg
+homep-projects.jpeg
+*/
+
+  </script>
+
